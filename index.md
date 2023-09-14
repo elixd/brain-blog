@@ -2,7 +2,7 @@
 layout: home
 ---
 
-Welcome to my blog2!
+Welcome to my blog!
 
 <!-- This is for the search bar -->
 <input type="text" id="search-input" placeholder="Search for posts...">
@@ -19,3 +19,14 @@ SimpleJekyllSearch({
   noResultsText: 'No results found'
 })
 </script>
+
+<!-- List of posts with the first N lines -->
+{% for post in site.posts %}
+  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  <p>
+    {% assign lines = post.content | split: '\n' %}
+    {% for line in lines limit: N %}
+      {{ line | markdownify }}
+    {% endfor %}
+  </p>
+{% endfor %}
