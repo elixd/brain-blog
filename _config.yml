@@ -3,4 +3,4 @@ description: This is my blog's description.
 theme: minima
 plugins:
   - jekyll-paginate
-
+baseurl: "/brain-blog"
