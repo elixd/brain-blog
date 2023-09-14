@@ -1,12 +1,14 @@
 ---
-layout: null
+layout: default
 ---
-[
+
+# Latest Posts
+
+<ul>
 {% for post in site.posts %}
-  {
-    "title": "{{ post.title | escape }}",
-    "content": "{{ post.content | strip_html | escape }}",
-    "url": "{{ site.baseurl }}{{ post.url }}"
-  }{% unless forloop.last %},{% endunless %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <small>{{ post.date | date: "%B %d, %Y" }}</small>
+  </li>
 {% endfor %}
-]
+</ul>
