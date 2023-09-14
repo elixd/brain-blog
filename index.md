@@ -4,23 +4,11 @@ layout: default
 
 # Brain Blog
 
+## Search
 <input type="text" id="search-input" placeholder="Search for posts...">
-<ul id="search-results">
-  <!-- search results will appear here -->
-</ul>
+<ul id="search-results"></ul>
 
-<script>
-  var search = new SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('search-results'),
-    json: '/brain-blog/search.json',
-    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    noResultsText: 'No results found'
-  });
-</script>
-
-# Latest Posts
-
+## Latest Posts
 <ul>
 {% for post in site.posts %}
   <li>
@@ -29,3 +17,13 @@ layout: default
   </li>
 {% endfor %}
 </ul>
+
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('search-results'),
+    json: '/brain-blog/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>',
+    noResultsText: 'No results found'
+  });
+</script>
