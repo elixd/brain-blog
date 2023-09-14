@@ -1,3 +1,6 @@
 title: My Jekyll Blog
 description: This is my blog's description.
 theme: minima
+plugins:
+  - jekyll-paginate
+
