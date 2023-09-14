@@ -2,7 +2,7 @@
 layout: home
 ---
 
-Welcome to my blog!
+Welcome to my blog2!
 
 <!-- This is for the search bar -->
 <input type="text" id="search-input" placeholder="Search for posts...">
