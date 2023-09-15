@@ -1,10 +1,8 @@
 title: Brain Blog
 email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write a short description for your blog here.
-baseurl: "/brain-blog" # the subpath of your site, e.g. /blog
-url: "https://elixd.github.io" # the base hostname & protocol for your site
-twitter_username: jekyllrb
+description: 'Your blog description'
+baseurl: "/brain-blog" 
+url: "https://elixd.github.io" 
 github_username:  elixd
 
 # Build settings
@@ -12,7 +10,3 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-
-exclude:
-  - Gemfile
-  - Gemfile.lock
