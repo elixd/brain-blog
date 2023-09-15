@@ -1,0 +1,56 @@
+---
+sass:
+  style: compressed
+---
+
+@import "minima";
+
+/* Custom Styling for Search */
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+#search-input {
+    display: block;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+    
+    &:focus {
+        border-color: #555;
+        outline: none;
+    }
+}
+
+#search-results {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#search-results li {
+    margin-bottom: 10px;
+    
+    a {
+        color: #0077cc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #0055aa;
+        }
+    }
+
+    small {
+        display: block;
+        margin-top: 4px;
+        color: #777;
+    }
+}
+
+/* Additional general styling can be added below */
