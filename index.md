@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
 
-  // Handle search
-  document.getElementById('search-input').addEventListener("keyup", function() {
+// Handle search
+document.getElementById('search-input').addEventListener("keyup", function() {
     var query = this.value;
-    var results = idx.search(query);
+    var results = idx.search(query + "*");  // <--- Add the wildcard here
     displayResults(results);
-  });
+});
 
   function displayResults(results) {
     var searchResults = document.getElementById('search-results');
