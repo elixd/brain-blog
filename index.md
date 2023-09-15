@@ -2,6 +2,7 @@
 layout: home
 ---
 
+
 ## Search Posts
 
 <input type="text" id="search-input" placeholder="Enter search term..." style="width:100%; padding: 10px; margin: 20px 0; border: 1px solid #ddd; border-radius: 4px;">
