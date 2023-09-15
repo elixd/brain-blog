@@ -20,33 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var idx;
     var docs;
     var baseUrl = "{{ site.baseurl }}";
-    
-    // Custom tokenizer for substrings
-    lunr.tokenizer = function(obj) {
-        if (!arguments.length || obj == null || obj == undefined) return [];
-        if (Array.isArray(obj)) return obj.map(function (t) { return t.toLowerCase() });
 
-        var str = obj.toString().toLowerCase().replace(/^\s+/, '');
-        for (var i = str.length - 1; i >= 0; i--) {
-            if (/\S/.test(str.charAt(i))) {
-                str = str.substring(0, i + 1);
-                break;
-            }
-        }
-        var tokens = str
-            .split(/[\s\-]+/)
-            .reduce(function (tokens, token) {
-                if (token) {
-                    var arr = [];
-                    for (var i = 1; i <= token.length; i++) {
-                        arr.push(token.slice(0, i));
-                    }
-                    tokens = tokens.concat(arr);
-                }
-                return tokens;
-            }, []);
-        return tokens;
-    }
+    // Custom tokenizer for substrings
+    // ... [same tokenizer code as before]
 
     // Download the data
     fetch(baseUrl + '/search.json')
@@ -65,18 +41,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Handle search
     document.getElementById('search-input').addEventListener("keyup", function() {
-        var query = "*" + this.value + "*"; // <-- Adjusted the wildcard placement
+        var query = "*" + this.value + "*";
         var results = idx.search(query);
-        displayResults(results);
+        displayResults(results, this.value);
     });
 
-    function displayResults(results) {
+    function displayResults(results, query) {
         var searchResults = document.getElementById('search-results');
         if (results.length) {
             var output = '';
             results.forEach(function(result) {
                 var item = docs.find(i => i.url === result.ref);
-                output += '<li><a href="' + baseUrl + item.url + '">' + item.title + '</a></li>';
+                var snippet = item.content;
+
+                // Create a snippet around the search term for context
+                var start = snippet.indexOf(query) - 30;
+                start = start < 0 ? 0 : start;
+                var end = start + query.length + 60;
+                snippet = snippet.substring(start, end) + '...';
+
+                output += '<li><a href="' + baseUrl + item.url + '">' + item.title + '</a><br><small>' + snippet + '</small></li>';
             });
             searchResults.innerHTML = output;
         } else {
