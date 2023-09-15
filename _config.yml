@@ -1,12 +1,55 @@
+# Site Settings
 title: Brain Blog
+description: A blog about interesting thoughts and ideas.
 email: your-email@example.com
-description: 'Your blog description'
 baseurl: "/brain-blog" 
 url: "https://elixd.github.io" 
 github_username:  elixd
 
-# Build settings
+# Build Settings
 markdown: kramdown
 theme: minima
+permalink: /:year/:month/:day/:title/
+
+# SEO Settings
+title_separator: "-"
+excerpt_separator: "<!--more-->"
+
+# Plugins
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+
+# Sass
+sass:
+  style: compressed
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Default Layouts
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - 
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Navigation
+header_pages:
+  - about.md
+
+# Social Media
+twitter_username: your_twitter_handle
+github_username:  your_github_handle
+
+# Google Analytics
+google_analytics: "Your-Google-Analytics-ID"
