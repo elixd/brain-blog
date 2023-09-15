@@ -1,6 +1,8 @@
 ---
 ---
 
+Hello! 
+
 # {{ site.title }}
 
 {% for post in site.posts %}
