@@ -9,6 +9,8 @@ github_username:  elixd
 # Build Settings
 markdown: kramdown
 theme: minima
+minima:
+  skin: solarized # or any other skin you want
 permalink: /:year/:month/:day/:title/
 
 # SEO Settings
