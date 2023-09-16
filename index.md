@@ -1,11 +1,18 @@
 ---
-layout: home
 ---
+
+# {{ site.title }}
+
+{% for post in site.posts %}
+- **[{{ post.title }}]({{ site.baseurl }}{{ post.url }})**  
+  _Posted on {{ post.date | date: "%b %-d, %Y" }}_  
+  {{ post.excerpt }}
+{% endfor %}
 
 ## Search Posts
 
-<input type="text" id="search-input" placeholder="Enter search term..." style="width:100%; padding: 10px; margin: 20px 0; border: 1px solid #ddd; border-radius: 4px;">
-<ul id="search-results" style="list-style-type: none; padding-left: 0;"></ul>
+<input type="text" id="search-input" placeholder="Enter search term...">
+<ul id="search-results"></ul>
 
 <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
 <script>
@@ -13,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var idx;
     var docs;
     var baseUrl = "{{ site.baseurl }}";
+
+    // Custom tokenizer for substrings
+    // ... [same tokenizer code as before]
 
     // Download the data
     fetch(baseUrl + '/search.json')
@@ -43,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             results.forEach(function(result) {
                 var item = docs.find(i => i.url === result.ref);
                 var snippet = item.content;
-                
+
                 // Create a snippet around the search term for context
                 var start = snippet.indexOf(query) - 30;
                 start = start < 0 ? 0 : start;
