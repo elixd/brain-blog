@@ -1,13 +1,13 @@
 ---
 ---
 
-# {{ site.title }}
-
+{% comment %}
 {% for post in site.posts %}
 - **[{{ post.title }}]({{ site.baseurl }}{{ post.url }})**  
   _Posted on {{ post.date | date: "%b %-d, %Y" }}_  
   {{ post.excerpt }}
 {% endfor %}
+{% endcomment %}
 
 ## Search Posts
 
