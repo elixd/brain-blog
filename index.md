@@ -4,7 +4,6 @@ title: Brain Blog 2023
 ---
 
 ## Search Posts
-
 <input type="text" id="search-input" placeholder="Search for posts...">
 <ul id="search-results"></ul>
 
