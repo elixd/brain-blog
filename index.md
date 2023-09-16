@@ -1,10 +1,10 @@
 ---
 layout: home
-title: Brain Blog
+title: Brain Blog 2023
 ---
 
 ## Search Posts
-
+123
 <input type="text" id="search-input" placeholder="Search for posts...">
 <ul id="search-results"></ul>
 
