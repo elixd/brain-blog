@@ -8,6 +8,14 @@ github_username:  elixd
 
 # Build Settings
 markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 theme: minima
 minima:
   skin: solarized # or any other skin you want
